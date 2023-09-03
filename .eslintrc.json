@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:tailwindcss/recommended",
+    "plugin:react/recommended",
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js"],
+      "parser": "@typescript-eslint/parser"
+    }
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-sort-props": "error"
+  }
+}
