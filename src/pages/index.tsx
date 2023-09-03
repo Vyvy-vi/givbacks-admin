@@ -7,11 +7,10 @@ export default function Home() {
   return (
     <>
       <Head />
-      <main className='grid justify-center items-center min-h-screen'>
-        <div className="container rounded-lg bg-white p-4 shadow-md w-80 items-center justify-content text-center">
-
+      <main className="grid min-h-screen items-center justify-center">
+        <div className="container w-80 items-center rounded-lg bg-white p-4 text-center shadow-md ">
           <h1 className="text-3xl font-semibold text-gray-700">{SITE_NAME}</h1>
-          <p className="text-gray-600 p-4">{SITE_DESCRIPTION}</p>
+          <p className="p-4 text-gray-600">{SITE_DESCRIPTION}</p>
 
           <Profile />
         </div>

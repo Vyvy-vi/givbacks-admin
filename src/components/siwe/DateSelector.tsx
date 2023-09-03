@@ -14,31 +14,31 @@ export function DateSelector() {
   return (
     <>
       {!calculated && (
-        <div className="grid-row-3 grid place-items-center gap-2">
+        <div className="grid place-items-center gap-2">
           <div className="grid grid-cols-3 gap-2">
             <p className="font-bold">Start Date: </p>
             <DatePicker
-              showTimeSelect
+              className="col-span-2 rounded-lg border border-slate-700 px-2 text-right"
               dateFormat="yyyy/MM/dd-HH:mm:ss"
-              className="grid-span-2 rounded-lg border border-slate-700 px-2 text-right"
-              selected={startDate}
-              onChange={(date: Date) => setStartDate(date)}
-              selectsStart
-              startDate={startDate}
               endDate={endDate}
+              onChange={(date: Date) => setStartDate(date)}
+              selected={startDate}
+              selectsStart
+              showTimeSelect
+              startDate={startDate}
             />
           </div>
           <div className="grid grid-cols-3 gap-2">
             <p className="font-bold">End Date: </p>
             <DatePicker
-              showTimeSelect
+              className="col-span-2 rounded-lg border border-slate-700 px-2 text-right"
               dateFormat="yyyy/MM/dd-HH:mm:ss"
-              className="grid-span-2 rounded-lg border border-slate-700 px-2 text-right"
-              selected={endDate}
-              onChange={(date: Date) => setEndDate(date)}
-              selectsEnd
-              startDate={startDate}
               endDate={endDate}
+              onChange={(date: Date) => setEndDate(date)}
+              selected={endDate}
+              selectsEnd
+              showTimeSelect
+              startDate={startDate}
             />
           </div>
           <button
@@ -48,9 +48,7 @@ export function DateSelector() {
           </button>
         </div>
       )}
-      {calculated && (
-        <p>Calculation</p>
-      )}
+      {calculated && <p>Calculation</p>}
     </>
   )
 }

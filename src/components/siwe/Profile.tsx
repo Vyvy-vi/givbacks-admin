@@ -2,7 +2,7 @@ import { useAccount } from 'wagmi'
 import { useEffect, useState } from 'react'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { SignInButton } from './SignInButton'
-import { DateSelector } from './DateSelector';
+import { DateSelector } from './DateSelector'
 
 export function Profile() {
   const { isConnected } = useAccount()
@@ -42,29 +42,29 @@ export function Profile() {
 
   if (isConnectedAccount) {
     return (
-
-        <div>
-          {!state.address && <SignInButton
+      <div>
+        {!state.address && (
+          <SignInButton
             onError={({ error }) => setState((x) => ({ ...x, error }))}
             onSuccess={({ address }) => setState((x) => ({ ...x, address }))}
           />
-          }
-          {state.address && (
-            <div className="mt-6 text-slate-700">
-              <DateSelector />
-              <h3 className="text-2xl font-medium">Signed in as</h3>
-              <h4 className='break-words'>{state.address}</h4>
-              <button
-                className="mt-4 w-full rounded-xl bg-red-200 p-3 text-lg font-semibold text-red-700 transition  duration-300 focus:ring-2 focus:ring-red-500 enabled:hover:bg-red-300 disabled:opacity-70"
-                onClick={async () => {
-                  await fetch('/api/logout')
-                  setState({})
-                }}>
-                Sign Out
-              </button>
-            </div>
-          )}
-        </div>
+        )}
+        {state.address && (
+          <div className="mt-6 text-slate-700">
+            <DateSelector />
+            <h3 className="text-2xl font-medium">Signed in as</h3>
+            <h4 className="break-words">{state.address}</h4>
+            <button
+              className="mt-4 w-full rounded-xl bg-red-200 p-3 text-lg font-semibold text-red-700 transition  duration-300 focus:ring-2 focus:ring-red-500 enabled:hover:bg-red-300 disabled:opacity-70"
+              onClick={async () => {
+                await fetch('/api/logout')
+                setState({})
+              }}>
+              Sign Out
+            </button>
+          </div>
+        )}
+      </div>
     )
   }
   return (
@@ -72,7 +72,7 @@ export function Profile() {
       <h3 className="mt-8 text-xl font-medium text-slate-800">
         Connect your wallet to Sign-In with Ethereum.
       </h3>
-      <ConnectButton chainStatus="none" showBalance={false}/>
+      <ConnectButton chainStatus="none" showBalance={false} />
     </div>
   )
 }
