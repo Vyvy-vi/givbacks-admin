@@ -68,10 +68,10 @@ export function Profile() {
     )
   }
   return (
-    <div>
-      <h3 className="mt-8 text-xl font-medium text-slate-800">
+    <div className='flex flex-col items-center gap-2'>
+      <p className="mt-8 text-lg text-slate-800">
         Connect your wallet to Sign-In with Ethereum.
-      </h3>
+      </p>
       <ConnectButton chainStatus="none" showBalance={false} />
     </div>
   )
