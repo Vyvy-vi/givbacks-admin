@@ -11,6 +11,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
 )
 const { connectors } = getDefaultWallets({
   appName: SITE_NAME,
+  projectId: "d28382d217f97027bf8c126291a5e2d4",
   chains,
 })
 

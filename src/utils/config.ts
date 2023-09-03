@@ -1,8 +1,8 @@
 import { mainnet, goerli } from '@wagmi/chains'
 
-export const SITE_NAME = 'Next.js Web3 Starter'
-export const SITE_DESCRIPTION = 'Next.js + Web3 powered by General Magic.'
-export const SITE_URL = 'https://starter.generalmagic.io/'
+export const SITE_NAME = 'Givbacks Admin'
+export const SITE_DESCRIPTION = 'Admin Application for processing Givbacks'
+export const SITE_URL = process.env.SITE_URL
 
 export const SOCIAL_TWITTER = 'generalmagicio'
 export const SOCIAL_GITHUB = 'GeneralMagicio/next-web3-starter'
@@ -14,7 +14,7 @@ export const IRON_SESSION_CONFIG = {
   password:
     process.env.IRON_SESSION_PASSWORD ??
     // UPDATE fallback password
-    'complex_password_at_least_32_characters_long',
+    'oMTmFByjX3x?3SefHXgMPRTE!rBtg6dM',
   cookieOptions: {
     // secure: true should be used in production (HTTPS) but can't be used in development (HTTP)
     secure: process.env.NODE_ENV === 'production',
