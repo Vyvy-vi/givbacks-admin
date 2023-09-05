@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react'
 import DatePicker from 'react-datepicker'
+import { RenderCalculation } from './RenderCalculations'
+import { format } from 'date-fns'
+import { performCalculations } from '@/utils/performCalculations'
 
 export function DateSelector() {
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
-
   const [calculated, setCalculated] = useState(false)
 
-  useEffect(() => {
-    console.log(startDate)
-    console.log(endDate)
-  }, [startDate, endDate])
   return (
     <>
       {!calculated && (
@@ -41,14 +39,21 @@ export function DateSelector() {
               startDate={startDate}
             />
           </div>
-          <button
-            className="m-4 w-full rounded-xl bg-green-200 p-3 text-lg font-semibold text-green-700 transition  duration-300 focus:ring-2 focus:ring-green-500 enabled:hover:bg-green-300 disabled:opacity-70"
-            onClick={() => console.log('Calculate Distribution')}>
-            Calculate Distribution
-          </button>
+          {!calculated && (
+            <button
+              className="m-4 w-full rounded-xl bg-green-200 p-3 text-lg font-semibold text-green-700 transition  duration-300 focus:ring-2 focus:ring-green-500 enabled:hover:bg-green-300 disabled:opacity-70"
+              onClick={() => {
+                performCalculations(format(startDate, 'yyyy/MM/dd-HH:mm:ss'), format(endDate, 'yyyy/MM/dd-HH:mm:ss'))
+                setCalculated(true)
+              }}>
+              Calculate Distribution
+            </button>
+          )}
         </div>
       )}
-      {calculated && <p>Calculation</p>}
+      {calculated && (
+        <RenderCalculation />
+      )}
     </>
   )
 }
