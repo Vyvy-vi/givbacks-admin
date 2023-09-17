@@ -88,13 +88,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       endDate,
       ChainOptions.allOtherChains
     )
-    const eligibleDonationsOptimism = await getData<eligibleDonationData>(
-      ApiEndpoints.eligibleDonations,
-      startDate,
-      endDate,
-      ChainOptions.optimism
-    )
-
     const notEligibleDonationsGeneral = await getData<eligibleDonationData>(
       ApiEndpoints.notEligibleDonations,
       startDate,
@@ -102,18 +95,30 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       ChainOptions.allOtherChains
     )
 
-    const notEligibleDonationsOptimism = await getData<eligibleDonationData>(
-      ApiEndpoints.notEligibleDonations,
-      startDate,
-      endDate,
-      ChainOptions.optimism
-    )
+    // const eligibleDonationsOptimism = await getData<eligibleDonationData>(
+    //   ApiEndpoints.eligibleDonations,
+    //   startDate,
+    //   endDate,
+    //   ChainOptions.optimism
+    // )
+
+    // const notEligibleDonationsOptimism = await getData<eligibleDonationData>(
+    //   ApiEndpoints.notEligibleDonations,
+    //   startDate,
+    //   endDate,
+    //   ChainOptions.optimism
+    // )
 
     const purpleListDonationsToVerifiedProjects = await getData<purpleList>(
       ApiEndpoints.purpleListDonationsToVerifiedProjects,
       startDate,
       endDate
     )
+
+    const d = await fetch('/createSpreadsheet')
+    console.log(await d.json())
+
+    return res.status(200).end()
   }
   res.setHeader('Allow', ['GET'])
   return res.status(405).end(`Method ${req.method} Not Allowed`)

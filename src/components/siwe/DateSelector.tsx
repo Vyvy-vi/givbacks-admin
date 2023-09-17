@@ -16,7 +16,7 @@ export function DateSelector() {
           <div className="grid grid-cols-3 gap-2">
             <p className="font-bold">Start Date: </p>
             <DatePicker
-              className="col-span-2 rounded-lg border border-slate-700 px-2 text-right"
+              className="col-span-2 rounded-lg border border-slate-700 px-2 text-right w-48"
               dateFormat="yyyy/MM/dd-HH:mm:ss"
               endDate={endDate}
               onChange={(date: Date) => setStartDate(date)}
@@ -29,7 +29,7 @@ export function DateSelector() {
           <div className="grid grid-cols-3 gap-2">
             <p className="font-bold">End Date: </p>
             <DatePicker
-              className="col-span-2 rounded-lg border border-slate-700 px-2 text-right"
+              className="col-span-2 rounded-lg border border-slate-700 px-2 text-right w-48"
               dateFormat="yyyy/MM/dd-HH:mm:ss"
               endDate={endDate}
               onChange={(date: Date) => setEndDate(date)}
@@ -39,6 +39,10 @@ export function DateSelector() {
               startDate={startDate}
             />
           </div>
+          <div className="grid grid-cols-3 gap-2">
+            <p className="font-bold">Round No: </p>
+            <input className='col-span-2 rounded-lg border border-slate-700 px-2 text-right w-48'></input>
+          </div> 
           {!calculated && (
             <button
               className="m-4 w-full rounded-xl bg-green-200 p-3 text-lg font-semibold text-green-700 transition  duration-300 focus:ring-2 focus:ring-green-500 enabled:hover:bg-green-300 disabled:opacity-70"
